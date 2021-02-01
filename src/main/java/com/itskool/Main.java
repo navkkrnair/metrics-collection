@@ -8,6 +8,7 @@ import io.vertx.micrometer.VertxPrometheusOptions;
 public class Main {
 
     public static void main(String[] args) {
+
         VertxOptions vertxOptions = new VertxOptions();
         VertxPrometheusOptions prometheusOptions = new VertxPrometheusOptions()
                 //.setPublishQuantiles(true)
