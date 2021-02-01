@@ -9,9 +9,8 @@ public class Main {
 
     public static void main(String[] args) {
         VertxOptions vertxOptions = new VertxOptions();
-        Vertx vertx = Vertx.vertx();
         VertxPrometheusOptions prometheusOptions = new VertxPrometheusOptions()
-                .setPublishQuantiles(true)
+                //.setPublishQuantiles(true)
                 .setEnabled(true);
         MicrometerMetricsOptions metricsOptions = new MicrometerMetricsOptions()
                 .setPrometheusOptions(prometheusOptions).setEnabled(true);
