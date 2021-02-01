@@ -14,17 +14,17 @@ public class MetricsVerticle extends AbstractVerticle {
 
 
     @Override
-    public void start(Promise<Void> promise) throws Exception {
+    public void start(Promise<Void> promise) {
         Router router = Router.router(vertx);
         router.get("/data")
-                .handler((RoutingContext context) -> this.handleRequest(context));
+                .handler(this::handleRequest);
 
         router.route("/metrics")
                 .handler(context -> {
                     logger.info("Collecting metrics");
                     context.next();
                 })
-                .handler(event -> PrometheusScrapingHandler.create());
+                .handler(PrometheusScrapingHandler.create());
 
         vertx.createHttpServer()
                 .requestHandler(router)
